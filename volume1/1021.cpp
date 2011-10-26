@@ -1,57 +1,41 @@
 #include <iostream>
-#include <cstdio>
-#include <cmath>
+#include <set>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
-long long ipow( int a, int n)
+int main()
 {
-	long long z = 1;
-	for (int i=0; i<n; i++) {
-		z*=a;
-	}
-	return z;
-}
-
-int A[100500];
-int a = 0;
-int B[100500];
-int b = 0;
-
-int
-main()
-{
-	long long n, m;
+	int n, z;
+	set<int> A, B;
+	vector<int> C;
+	
 	cin >> n;
-	for (int i=0; i<n; i++) {
-		cin >> A[a++];
-	}
-
-	cin >> m;
-	for (int i=0; i<m; i++) {
-		cin >> B[b++];
+//	A.inset(n);
+	for (int i=0; i<n; ++i) {
+		cin >> z;
+		A.insert(-z);
 	}
 	
-	int z = 0;
-	while ((z != 10000)and(a>=0)and(b>=0)and false) {
-		z = A[a] + B[b];
-		int z1 = A[a] + B[b-1];
-		int z2 = A[a-1] + B[b];
-		if (abs(z2-10000) < abs(z1-10000)) a--;
-		else b--;
+	cin >> n;
+//	B.resize(n);
+	for (int i=0; i<n; ++i) {
+		cin >> z;
+		B.insert(z - 10000);
 	}
 	
-	for (int i=0; i<a; i++) {
-		j = 0;
-		while(A[i] + B[j++] < 10000)
-			if ( )
+//	sort(A.begin(), A.end());
+//	sort(B.begin(), B.end());
 	
-	}
-	
+	C.resize(A.size());
+	vector<int>::const_iterator res;
+	res = set_intersection(A.begin(), A.end(), B.begin(), B.end(), C.begin());
+//	C.resize(res - C.begin());
 	
 	
 
-	cout << ((z==10000)?"YES":"NO") << endl;
-
+	
+	cout << ((res == C.begin())?"NO":"YES") << endl;
 	return 0;
 }
